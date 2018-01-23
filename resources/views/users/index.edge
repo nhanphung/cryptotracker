@@ -2,10 +2,13 @@
 
 
 @section('content')
-	<h2>List of all user</h2>
-	<ul>
+	<div class="container">
+		<h2>List of all user</h2>
+		<ul>
 		@each(user in users)
 			<li>{{ user.username }} - {{ user.email }}</li>
 		@endeach
-	</ul>
+		</ul>
+	</div>
+	
 @endsection
