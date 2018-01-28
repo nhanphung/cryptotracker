@@ -1,21 +1,17 @@
 'use strict'
 const Hash = use('Hash')
+const User = use('App/Models/User')
 
 class UserController {
 
 	async index({ view }) {
 
-		const users = [
-			{ 'username' : 'ntphung', 'email' : 'ntphung@crypto.com' },
-			{ 'username' : 'ptran', 'email' : 'ptran@crypto.com' },
-			{ 'username' : 'tnguyen', 'email' : 'tnguyen@crypto.com' },
-			{ 'username' : 'dnguyen', 'email' : 'dnguyen@crypto.com' }
-		]
+		const users = await User.all()
 
 
 
 		return view.render('users.index', { 
-			users : users
+			users : users.toJSON()
 
 		})
 	}
@@ -27,7 +23,16 @@ class UserController {
 	}
 
 	async store({ request, response, session }) {
-		return 'fasdfasdfasdf'
+		const user = new User()
+
+		user.firstname = request.input('firstname')
+		user.lastname = request.input('lastname')
+		user.username = request.input('username')
+		user.email = request.input('email')
+		user.password = request.input('password')
+
+		await user.save()
+		return response.redirect('/users')
 	}
 
 
