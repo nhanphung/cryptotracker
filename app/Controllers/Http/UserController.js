@@ -26,7 +26,7 @@ class UserController {
 
 	}
 
-	async store({ params }) {
+	async store({ request, response, session }) {
 		return 'fasdfasdfasdf'
 	}
 
