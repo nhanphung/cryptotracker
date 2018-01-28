@@ -26,6 +26,10 @@ class UserController {
 
 	}
 
+	async store({ params }) {
+		return 'fasdfasdfasdf'
+	}
+
 
 }
 

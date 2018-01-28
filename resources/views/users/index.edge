@@ -3,12 +3,14 @@
 
 @section('content')
 	<div class="container">
-		<h2>List of all user</h2>
+		<h2>Hard coded users</h2>
 		<ul>
 		@each(user in users)
 			<li>{{ user.username }} - {{ user.email }}</li>
 		@endeach
 		</ul>
+
+		<a href="create">Register</a>
 	</div>
 	
 @endsection
