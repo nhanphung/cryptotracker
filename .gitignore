@@ -5,11 +5,11 @@ node_modules
 tmp
 
 # Environment variables, never commit this file
-.env
+#.env
 
 # Lock files
 package-lock.json
 yarn.lock
 
 # The development sqlite file
-database/development.sqlite
+#database/development.sqlite
