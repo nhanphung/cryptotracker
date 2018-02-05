@@ -17,6 +17,9 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 
-Route.resource('users', 'UserController')
+Route.resource('users', 'UserController').validator(new Map([
+	[['users.store'], ['StoreUser']],
+	[['users.update'], ['UpdateUser']]
+]))
 
 
