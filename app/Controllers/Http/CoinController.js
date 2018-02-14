@@ -1,28 +1,28 @@
 'use strict'
 
-const User = use('App/Models/User')
+const Coin = use('App/Models/Coin')
 
-class UserController {
+class CoinController {
 
 	async index({ view }) {
 
-		const users = await User.all()
+		const coins = await Coin.all()
 
-		return view.render('users.index', { 
-			users : users.toJSON()
+		return view.render('coins.index', { 
+			coins : coins.toJSON()
 		})
 
 	}
 
 	async create({ view }) {
 
-		return view.render('users.create')
+		return view.render('coins.create')
 
 	}
 
 	async store({ request, response, session }) {
 
-		const user = new User()
+		const coin = new Coin()
 
 		user.firstname = request.input('firstname')
 		user.lastname = request.input('lastname')
@@ -36,13 +36,12 @@ class UserController {
 	}
 
 	async destroy({ params, session, response }) {
-		const user = await User.find(params.id)
+		const user = await Coin.find(params.id)
 		await user.delete()
 
 		return response.redirect('back')
 	}
 
-
 }
 
-module.exports = UserController
+module.exports = CoinController
